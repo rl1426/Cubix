@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Cubix</title>
+		<style>
+
+			.container {
+				width: 200px;
+				margin: auto;
+				margin-top: 500px;
+				perspective: 600px;
+				-webkit-perspective: 600px;
+				perspective-origin: 100px 100px;
+				-webkit-perspective-origin: 100px 100px;
+				transform-style: preserve-3d;
+				-webkit-transform-style: preserve-3d;
+				transition-duration: 2s;
+				-webkit-transition-duration: 2s;
+			}
+
+			.container:active {
+				transform: rotate3d(0, 0, 1, 180deg);
+				-webkit-transform: rotate3d(0, 0, 1, 180deg);
+
+			}
+
+			.cube, .cube2, .cube3, .cube4, .cube5 {
+				position: relative;
+				width: 200px;
+				opacity: 0.7;
+				transform-style: preserve-3d;
+				-webkit-transform-style: preserve-3d;
+				animation: spin 3s;
+				-webkit-animation: spin 3s;
+				animation-iteration-count: infinite;
+				-webkit-animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				-webkit-animation-timing-function: linear;
+			}
+
+/*			.cube2:hover, .cube3:hover, .cube4:hover, .cube5:hover {
+				animation-play-state: paused;
+				-webkit-animation-play-state: paused;
+			}*/
+			
+/*			.cube:hover {
+				animation: twirl 1s;
+				-webkit-animation: twirl 1s;
+				animation-iteration-count: infinite;
+				-webkit-animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				-webkit-animation-timing-function: linear;
+			}
+*/
+			.cube:active {
+				animation: move1 2s;
+				-webkit-animation: move1 2s;
+				animation-iteration-count: infinite;
+				-webkit-animation-iteration-count: infinite;
+			}
+
+			.cuber:active {
+				animation: move2 2s;
+				-webkit-animation: move2 2s;
+				animation-iteration-count: infinite;
+				-webkit-animation-iteration-count: infinite;
+			}
+
+			.cubel:active {
+				animation: move3 2s;
+				-webkit-animation: move3 2s;
+				animation-iteration-count: infinite;
+				-webkit-animation-iteration-count: infinite;
+			}
+
+			.cuber {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+			}
+
+			.cubel {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+			}
+
+			.cube div {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background-image: url(clouds.gif);
+			}
+
+			.cube2 div {
+				position: absolute;
+				left: 250px;
+				width: 200px;
+				height: 200px;
+				background-image: url(mountain.gif);
+			}
+
+			.cube3 div {
+				position: absolute;
+				left: -250px;
+				width: 200px;
+				height: 200px;
+				background-image: url(room.gif);
+			}
+
+			.cube4 div {
+				position: absolute;
+				left: 300px;
+				top: 50px;
+				width: 100px;
+				height: 100px;
+				background-image: url(fire.gif);
+			}
+
+			.cube5 div {
+				position: absolute;
+				left: -200px;
+				top: 50px;
+				width: 100px;
+				height: 100px;
+				background-image: url(fire.gif);
+			}
+
+			.cube .middle {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background-image: url(pika.svg);
+				background-size: cover;
+				animation: twirl 2s;
+				-webkit-animation: twirl 2s;
+				animation-iteration-count: infinite;
+				-webkit-animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				-webkit-animation-timing-function: linear;
+
+			}
+
+			@keyframes spin {
+				from {transform: rotateX(0deg);}
+				to {transform: rotateX(360deg);}
+			}
+
+			@-webkit-keyframes spin {
+				from {-webkit-transform: rotateX(0deg);}
+				to {-webkit-transform: rotateX(360deg);}
+			}
+
+			@keyframes twirl {
+				from {transform: rotateY(360deg);}
+				to {transform: rotateY(360deg);}
+			}
+
+			@-webkit-keyframes twirl {
+				from {-webkit-transform: rotateY(360deg);}
+				to {-webkit-transform: rotateY(360deg);}
+			}
+
+			@keyframes move1 {
+				0% {left: 0px; top: 0px;}
+				30% {left: 0px; top: -550px;} 
+				60% {left: 0px; top: 250px;} 
+				100% {left: 0px; top: 0px;} 
+			}
+
+			@-webkit-keyframes move1 {
+				0% {left: 0px; top: 0px;}
+				30% {left: 0px; top: -550px;} 
+				60% {left: 0px; top: 250px;} 
+				100% {left: 0px; top: 0px;} 
+			}
+
+			@keyframes move2 {
+				0% {left: 0px; top: 0px;}
+				30% {left: 500px; top: 0px;} 
+				60% {left: -250px; top: 0px;} 
+				100% {left: 0px; top: 0px;} 
+			}
+
+			@-webkit-keyframes move2 {
+				0% {left: 0px; top: 0px;}
+				30% {left: 500px; top: 0px;} 
+				60% {left: -250px; top: 0px;} 
+				100% {left: 0px; top: 0px;} 
+			}
+
+			@keyframes move3 {
+				0% {left: 0px; top: 0px;}
+				30% {left: -500px; top: 0px;} 
+				60% {left: 250px; top: 0px;} 
+				100% {left: 0px; top: 0px;} 
+			}
+
+			@-webkit-keyframes move3 {
+				0% {left: 0px; top: 0px;}
+				30% {left: -500px; top: 0px;} 
+				60% {left: 250px; top: 0px;} 
+				100% {left: 0px; top: 0px;} 
+			}
+
+/*CUBE FACES*/
+			.top {
+				background-color: black;
+				transform: rotateX(-90deg) translateY(-100px);
+				-webkit-transform: rotateX(-90deg) translateY(-100px);
+				transform-origin: top center;
+				-webkit-transform-origin: top center;
+			}
+
+			.bottom {
+				background-color: white;
+				transform: rotateX(90deg) translateY(100px);
+				-webkit-transform: rotateX(90deg) translateY(100px);
+				transform-origin: bottom center;
+				-webkit-transform-origin: bottom center;
+			}
+
+			.front {
+				background-color: black;
+				transform: translateZ(100px);
+				-webkit-transform: translateZ(100px);
+			}
+
+			.middle {
+				transform: translateZ(0px);
+				-webkit-transform: translateZ(0px);
+			}
+
+			.back {
+				background-color: white;
+				transform: translateZ(-100px) rotateY(180deg);
+				-webkit-transform: translateZ(-100px) rotateY(180deg);
+			}
+
+			.right {
+				background-color: black;
+				transform: rotateY(-270deg) translateX(100px);
+				-webkit-transform: rotateY(-270deg) translateX(100px);
+				transform-origin: top right;
+				-webkit-transform-origin: top right;
+			}
+
+			.left {
+				background-color: white;
+				transform: rotateY(270deg) translateX(-100px);
+				-webkit-transform: rotateY(270deg) translateX(-100px);
+				transform-origin: center left;
+				-webkit-transform-origin: center left;
+			}	
+/*CUBE FACES*/
+
+/*SMALL CUBE*/
+
+			.top2 {
+				background-color: black;
+				transform: rotateX(-90deg) translateY(-50px);
+				-webkit-transform: rotateX(-90deg) translateY(-50px);
+				transform-origin: top center;
+				-webkit-transform-origin: top center;
+			}
+
+			.bottom2 {
+				background-color: white;
+				transform: rotateX(90deg) translateY(50px);
+				-webkit-transform: rotateX(90deg) translateY(50px);
+				transform-origin: bottom center;
+				-webkit-transform-origin: bottom center;
+			}
+
+			.front2 {
+				background-color: black;
+				transform: translateZ(50px);
+				-webkit-transform: translateZ(50px);
+			}
+
+			.back2 {
+				background-color: white;
+				transform: translateZ(-50px) rotateY(180deg);
+				-webkit-transform: translateZ(-50px) rotateY(180deg);
+			}
+
+			.right2 {
+				background-color: black;
+				transform: rotateY(-270deg) translateX(50px);
+				-webkit-transform: rotateY(-270deg) translateX(50px);
+				transform-origin: top right;
+				-webkit-transform-origin: top right;
+			}
+
+			.left2 {
+				background-color: white;
+				transform: rotateY(270deg) translateX(-50px);
+				-webkit-transform: rotateY(270deg) translateX(-50px);
+				transform-origin: center left;
+				-webkit-transform-origin: center left;
+			}	
+
+/*SMALL CUBE*/
+
+
+		</style>
+	</head>
+
+	<body>
+
+		<div class="container">
+				<div class="cube">
+					<div class="front"></div>
+					<div class="back"></div>
+					<div class="top"></div>
+					<div class="bottom"></div>
+					<div class="left"></div>
+					<div class="right"></div>
+					<div class="middle"></div>
+				</div>
+			<div class="cuber">
+				<div class="cube2">
+					<div class="front"></div>
+					<div class="back"></div>
+					<div class="top"></div>
+					<div class="bottom"></div>
+					<div class="left"></div>
+					<div class="right"></div>
+				</div>
+				<div class="cube4">
+					<div class="front2"></div>
+					<div class="back2"></div>
+					<div class="top2"></div>
+					<div class="bottom2"></div>
+					<div class="left2"></div>
+					<div class="right2"></div>
+				</div>
+			</div>
+			<div class="cubel">
+				<div class="cube3">
+					<div class="front"></div>
+					<div class="back"></div>
+					<div class="top"></div>
+					<div class="bottom"></div>
+					<div class="left"></div>
+					<div class="right"></div>
+				</div>
+				<div class="cube5">
+					<div class="front2"></div>
+					<div class="back2"></div>
+					<div class="top2"></div>
+					<div class="bottom2"></div>
+					<div class="left2"></div>
+					<div class="right2"></div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
